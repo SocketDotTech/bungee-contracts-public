@@ -1,0 +1,184 @@
+{
+	"forks": [
+		{
+			"chainCode": "ETH",
+			"networkId": 1,
+			"blockNumber": 16333752
+		},
+		{
+			"chainCode": "POLYGON",
+			"networkId": 137,
+			"blockNumber": 37663689
+		}
+	],
+	"simulationResponses": [
+		// {
+		// 	"bridgeName": "HOP_L1",
+		// 	"tokenType": "ERC20",
+		// 	"tokenCode": "USDC",
+		// 	"sourceChainCode": "ETH",
+		// 	"sourceChainId": 1,
+		// 	"destinationChainCode": "ARBITRUM",
+		// 	"destinationChainId": 42161,
+		// 	"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+		// 	"gasCost":{
+		// 		"Bridge": "191209",
+		// 		"DirectBridge": "191209"
+		// 	}
+		// },
+		{
+			"bridgeName": "HOP_L1",
+			"bridgeType": "BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "USDC",
+			"gasUsed": "191209",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "ETH",
+			"sourceChainId": 1,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+		},
+		{
+			"bridgeName": "HOP_L1",
+			"bridgeType": "BRIDGE",
+			"tokenType": "NATIVE",
+			"tokenCode": "NATIVE_TOKEN",
+			"gasUsed": "41687",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "POLYGON",
+			"sourceChainId": 137,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+		},
+		{
+			"bridgeName": "HOP_L1",
+			"bridgeType": "DIRECT_BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "USDC",
+			"gasUsed": "163615",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "ETH",
+			"sourceChainId": 1,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+		},
+		{
+			"bridgeName": "HOP_L1",
+			"bridgeType": "BRIDGE",
+			"tokenType": "NATIVE",
+			"tokenCode": "NATIVE_TOKEN",
+			"gasUsed": "41687",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "POLYGON",
+			"sourceChainId": 137,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+		},
+		{
+			"bridgeName": "NATIVE_ARBITRUM",
+			"bridgeType": "BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "USDC",
+			"gasUsed": "121938",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "ETH",
+			"sourceChainId": 1,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+		},
+		{
+			"bridgeName": "NATIVE_OPTIMISM",
+			"bridgeType": "BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "USDC",
+			"gasUsed": "224124",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "ETH",
+			"sourceChainId": 1,
+			"destinationChainCode": "OPTIMISM",
+			"destinationChainId": 10,
+			"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+		},
+		{
+			"bridgeName": "NATIVE_POLYGON",
+			"bridgeType": "BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "USDC",
+			"gasUsed": "138660",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "ETH",
+			"sourceChainId": 1,
+			"destinationChainCode": "POLYGON",
+			"destinationChainId": 137,
+			"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+		},
+		{
+			"bridgeName": "HOP_L2",
+			"bridgeType": "BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "USDC",
+			"gasUsed": "165336",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "POLYGON",
+			"sourceChainId": 137,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+		},
+		{
+			"bridgeName": "HOP_L2",
+			"bridgeType": "BRIDGE",
+			"tokenType": "NATIVE",
+			"tokenCode": "NATIVE_TOKEN",
+			"gasUsed": "37497",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "POLYGON",
+			"sourceChainId": 137,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+		},
+		{
+			"bridgeName": "HOP_L2",
+			"bridgeType": "DIRECT_BRIDGE",
+			"tokenType": "ERC20",
+			"tokenCode": "NATIVE_TOKEN",
+			"gasUsed": "23262",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "POLYGON",
+			"sourceChainId": 137,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+		},
+		{
+			"bridgeName": "HOP_L2",
+			"bridgeType": "DIRECT_BRIDGE",
+			"tokenType": "NATIVE",
+			"tokenCode": "NATIVE_TOKEN",
+			"gasUsed": "90351",
+			"isSuccessful": true,
+			"errorMessage": "",
+			"sourceChainCode": "POLYGON",
+			"sourceChainId": 137,
+			"destinationChainCode": "ARBITRUM",
+			"destinationChainId": 42161,
+			"tokenAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+		}
+	]
+}

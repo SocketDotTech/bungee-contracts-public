@@ -1,0 +1,16 @@
+[profile.default]
+src = 'src'
+out = 'out'
+test = 'test/solidity/bridges/across' # remap test folder temporarily
+libs = ['lib']
+cache_path  = 'forge-cache'
+
+solc_version = '0.8.15'
+optimizer = true
+optimizer_runs = 4294967295
+evm_version = 'shanghai'
+gas_price=40000000000
+
+fuzz-runs=1
+fuzz_max_global_rejects=100000
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

@@ -1,0 +1,90 @@
+{
+  "contractName": "CelerStorageWrapper",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_socketGateway",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "OnlySocketGateway",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "TransferIdDoesnotExist",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "transferId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "deleteTransferId",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "transferId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getAddressFromTransferId",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "transferId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "transferIdAddress",
+          "type": "address"
+        }
+      ],
+      "name": "setAddressForTransferId",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "socketGateway",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60a060405234801561001057600080fd5b506040516103f83803806103f883398101604081905261002f91610044565b60601b6001600160601b031916608052610074565b60006020828403121561005657600080fd5b81516001600160a01b038116811461006d57600080fd5b9392505050565b60805160601c61035961009f6000396000818160560152818161011701526101d901526103596000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063678fcd61146100515780636be19e50146100a1578063789192c5146100b6578063933d9d42146100ec575b600080fd5b6100787f000000000000000000000000000000000000000000000000000000000000000081565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b6100b46100af3660046102da565b6100ff565b005b6100786100c43660046102c1565b60009081526020819052604090205473ffffffffffffffffffffffffffffffffffffffff1690565b6100b46100fa3660046102c1565b6101c1565b3373ffffffffffffffffffffffffffffffffffffffff7f0000000000000000000000000000000000000000000000000000000000000000161461016e576040517ff26235a600000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60009182526020829052604090912080547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff909216919091179055565b3373ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001614610230576040517ff26235a600000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60008181526020819052604090205473ffffffffffffffffffffffffffffffffffffffff1661028b576040517f484dfb9700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600090815260208190526040902080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055565b6000602082840312156102d357600080fd5b5035919050565b600080604083850312156102ed57600080fd5b82359150602083013573ffffffffffffffffffffffffffffffffffffffff8116811461031857600080fd5b80915050925092905056fea2646970667358221220b4e1162e66d7ad6f778d6488fdb51fa7b8d972eaa4e7f84cdd890520eafdc27364736f6c63430008070033"
+}

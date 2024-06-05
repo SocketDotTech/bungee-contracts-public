@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+.DS_Store/
+typechain/
+cache/
+artifacts/
+forge-cache/
+out/
+cache_hardhat/
+.env
+.vscode
+yarn-error.log
+/cache-zk
+/artifacts-zk
