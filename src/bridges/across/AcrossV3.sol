@@ -28,7 +28,7 @@ contract AcrossImpl is BridgeImplBase {
     bytes4 public immutable ACROSS_ERC20_EXTERNAL_BRIDGE_FUNCTION_SELECTOR =
         bytes4(
             keccak256(
-                "bridgeERC20To(uint256,(address[],address[],uint256[],uint32[],bytes32))"
+                "bridgeERC20To(uint256,(address[],address[],uint256[],uint32[],uint256,bytes32))"
             )
         );
 
@@ -37,14 +37,14 @@ contract AcrossImpl is BridgeImplBase {
     bytes4 public immutable ACROSS_NATIVE_EXTERNAL_BRIDGE_FUNCTION_SELECTOR =
         bytes4(
             keccak256(
-                "bridgeNativeTo(uint256,(address[],address,uint256[],uint32[],bytes32))"
+                "bridgeNativeTo(uint256,(address[],address,uint256[],uint32[],uint256,bytes32))"
             )
         );
 
     bytes4 public immutable ACROSS_SWAP_BRIDGE_SELECTOR =
         bytes4(
             keccak256(
-                "swapAndBridge(uint32,bytes,(address[],address,uint256[],uint32[],bytes32))"
+                "swapAndBridge(uint32,bytes,(address[],address,uint256[],uint32[],uint256,bytes32))"
             )
         );
 
@@ -63,6 +63,7 @@ contract AcrossImpl is BridgeImplBase {
         address outputToken;
         uint256[] outputAmountToChainIdArray; // 0 -output amount, 1 - tochainId
         uint32[] quoteAndDeadlineTimeStamps; // 0 - quoteTimestamp, 1 - fillDeadline
+        uint256 bridgeFee; // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
         bytes32 metadata;
     }
 
@@ -71,6 +72,7 @@ contract AcrossImpl is BridgeImplBase {
         address[] inputOutputTokens; // 0 - input token, 1 - output token
         uint256[] outputAmountToChainIdArray; // 0 -output amount, 1 - tochainId
         uint32[] quoteAndDeadlineTimeStamps; // 0 - quoteTimestamp, 1 - fillDeadline
+        uint256 bridgeFee; // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
         bytes32 metadata;
     }
 
@@ -98,7 +100,7 @@ contract AcrossImpl is BridgeImplBase {
             token,
             acrossBridgeData.outputToken,
             amount,
-            acrossBridgeData.outputAmountToChainIdArray[0],
+            amount - acrossBridgeData.bridgeFee, // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
             acrossBridgeData.outputAmountToChainIdArray[1],
             address(0),
             acrossBridgeData.quoteAndDeadlineTimeStamps[0],
@@ -121,7 +123,7 @@ contract AcrossImpl is BridgeImplBase {
             WETH,
             acrossBridgeData.outputToken,
             amount,
-            acrossBridgeData.outputAmountToChainIdArray[0],
+            amount - acrossBridgeData.bridgeFee, // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
             acrossBridgeData.outputAmountToChainIdArray[1],
             address(0),
             acrossBridgeData.quoteAndDeadlineTimeStamps[0],
@@ -159,7 +161,7 @@ contract AcrossImpl is BridgeImplBase {
                 WETH,
                 acrossBridgeData.inputOutputTokens[1],
                 amount,
-                acrossBridgeData.outputAmountToChainIdArray[0],
+                amount - acrossBridgeData.bridgeFee,
                 acrossBridgeData.outputAmountToChainIdArray[1],
                 address(0),
                 acrossBridgeData.quoteAndDeadlineTimeStamps[0],
@@ -186,7 +188,7 @@ contract AcrossImpl is BridgeImplBase {
                 acrossBridgeData.inputOutputTokens[0],
                 acrossBridgeData.inputOutputTokens[1],
                 amount,
-                acrossBridgeData.outputAmountToChainIdArray[0],
+                amount - acrossBridgeData.bridgeFee,
                 acrossBridgeData.outputAmountToChainIdArray[1],
                 address(0),
                 acrossBridgeData.quoteAndDeadlineTimeStamps[0],
