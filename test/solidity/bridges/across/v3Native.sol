@@ -35,6 +35,7 @@ contract EthToOptimismUSDCTest is Test, SocketGatewayBaseTest {
         address outputToken; // 0 - input token, 1 - output token
         uint256[] outputAmountToChainIdArray; // 0 -output amount, 1 - tochainId
         uint32[] quoteAndDeadlineTimeStamps; // 0 - quoteTimestamp, 1 - fillDeadline
+        uint256 bridgeFee;
         bytes32 metadata;
     }
 
@@ -86,6 +87,7 @@ contract EthToOptimismUSDCTest is Test, SocketGatewayBaseTest {
         uint32[] memory quoteAndDeadlineTimeStamps = new uint32[](2);
         quoteAndDeadlineTimeStamps[0] = quoteTimestamp;
         quoteAndDeadlineTimeStamps[1] = quoteTimestamp + 28800;
+        uint256 bridgeFee = 500000;
 
         vm.startPrank(depositor);
 
@@ -97,6 +99,7 @@ contract EthToOptimismUSDCTest is Test, SocketGatewayBaseTest {
                 outputToken,
                 outputAmountToChainIdArray,
                 quoteAndDeadlineTimeStamps,
+                bridgeFee,
                 metadata
             )
         );
