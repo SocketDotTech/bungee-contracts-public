@@ -39,3 +39,5 @@ bytes32 constant SYMBIOSIS = keccak256("Symbiosis");
 bytes32 constant GNOSIS_NATIVE_BRIDGE = keccak256("NativeGnosis");
 
 bytes32 constant SCROLL_NATIVE_BRIDGE = keccak256("NativeScroll");
+
+bytes32 constant ZEROX_V2 = keccak256("Zeroxv2");
