@@ -28,6 +28,8 @@ bytes32 constant RAINBOW = keccak256("Rainbow");
 
 bytes32 constant CCTP = keccak256("cctp");
 
+bytes32 constant CCTP_V2 = keccak256("cctp-v2");
+
 bytes32 constant CONNEXT = keccak256("Connext");
 
 bytes32 constant SYNAPSE = keccak256("Synapse");
