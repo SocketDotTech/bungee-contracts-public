@@ -1,7 +1,7 @@
 [profile.default]
 src = 'src'
 out = 'out'
-test = 'test/solidity/bridges/mayan' # remap test folder temporarily
+test = 'test/solidity/bridges/cctp-v2' # remap test folder temporarily
 libs = ['lib']
 cache_path  = 'forge-cache'
 
