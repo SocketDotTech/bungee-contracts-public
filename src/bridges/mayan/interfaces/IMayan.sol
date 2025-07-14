@@ -18,9 +18,31 @@ interface IMayanForwarderContract {
         bytes calldata protocolData
     ) external payable;
 
+    function swapAndForwardERC20(
+        address tokenIn,
+        uint256 amountIn,
+        PermitParams calldata permitParams,
+        address swapProtocol,
+        bytes calldata swapData,
+        address middleToken,
+        uint256 minMiddleAmount,
+        address mayanProtocol,
+        bytes calldata mayanData
+    ) external payable;
+
     function forwardEth(
         address mayanProtocol,
-        bytes calldata protocolData
+        bytes calldata mayanData
+    ) external payable;
+
+    function swapAndForwardEth(
+        uint256 amountIn,
+        address swapProtocol,
+        bytes calldata swapData,
+        address middleToken,
+        uint256 minMiddleAmount,
+        address mayanProtocol,
+        bytes calldata mayanData
     ) external payable;
 
     function replaceMiddleAmount(
