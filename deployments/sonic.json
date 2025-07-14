@@ -1,0 +1,22 @@
+{
+  "SwapExecutor": "0x6BFE1830046D92877Bb11229ceDe23e8590dc2c4",
+  "Solver": "0xAe68b7117BE0026Cbd4366303f74EEcbB19e4042",
+  "SingleOutputRequestImpl": "0x26Be0Eb9Ad8877e77da075dEc15b683D9EfD56aD",
+  "SwapRequestImpl": "0x8A228540a81344cD06bAB50dB3F938962aaF21D5",
+  "BungeeGateway": "0x11918f1cb6db5e008A692F47c5320216fba6054B",
+  "FeeCollector": "0xe772551F88E2c14aEcC880dF6b7CBd574561bf82",
+  "RFQRouterSingleOutput": "0x8C1F8e1e462B682B02A26dD6eDc0FE3E0278EF1C",
+  "CCTPRouterSingleOutput": "0x0000000000000000000000000000000000000000",
+  "SwitchboardRouter": "0x001aeD6a2F42b0CebCbCD9308c303ff2189eDC9c",
+  "SwitchboardPlug": "0xAaA647EE552b24D4E28Ab1B4e5223af9729035da",
+  "Entrypoint": "0x407BE335f94C30Ee2876c4cF86ce08A46f518cF3",
+  "BungeeInbox": "0x9D05eD9C0258ce034c6788944841Fe5825eDa0c4",
+  "SwapRequestCallback": "0xEFB37Bd3a9ed2f768bf6f79d0379fe7f9BE50F49",
+  "ZeroxV2Wrapper": "0x614595189d16995Fe22a5c267B220C803e50966F",
+  "CCTPV2RouterSingleOutput": "0x09b043840cd2f32687ec6b63fb0412585de39822",
+  "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
+  "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
+  "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
+  "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
+  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9"
+}
