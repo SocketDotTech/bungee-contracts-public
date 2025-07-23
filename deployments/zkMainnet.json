@@ -1,0 +1,12 @@
+{
+  "DisabledSocketRoute": "0xcB7Bf8C0dAf13f61A275D1E0D0D6d42bAF1a5231",
+  "SocketDeployFactory": "0xd95B102370Dffbb65fe8adf4157DEa22b563F4E1",
+  "SocketGateway": "0xaDdE7028e7ec226777e5dea5D53F6457C21ec7D6",
+  "AnyswapV6L2Impl": "0x0c8F5C755233401257b3Fda01816eC17Ae54642d",
+  "CelerStorageWrapper": "0xbC5ebCA678A2C2333a99F4ec79b1D09518bFD52e",
+  "CelerImpl": "0x3adaF849af32b298d8f34f7eD783dA8d3781aF29",
+  "RefuelBridgeImpl": "0xE3597Ec143dA4dB5053e2A51Cbf0a04B52b9b59C",
+  "OneInchImpl": "0xfAAA5398Ec7F335F71C102c7e8bc9Ef8d5763b77",
+  "FeesTakerController": "0x2D1bf3A12A020DAdb1D07Fc85ffA0f3eBC82F4F2",
+  "AcrossImpl": "0x8517D2B4A9df18034dd00CCB5940fA4dCfaD7219"
+}
