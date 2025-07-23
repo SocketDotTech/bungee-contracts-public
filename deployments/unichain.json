@@ -18,5 +18,14 @@
   "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
-  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9"
+  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
+
+  "SocketDeployFactory": "0x71630095e3F08A86aFC73f7b07342192adf39C55",
+  "SocketGateway": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+  "AcrossImplV3": "0xa16FD999AF50931C9e501177de4A2f288D1cfD6f",
+  "CctpImpl": "0xbD99719C412f0cF440439f328B93622DeBB601b2",
+  "ZeroxV2SwapImpl": "0x13C605F77Cd8A77977Cf0fa41a371204FaecCC03",
+  "FeesTakerController": "0xD0403D1994652f8476ACB8cf5c44aE41C44450f3",
+  "RefuelSwapAndBridgeController": "0xD306B32f05c26a32d5Fd0Fdaf34F05FCA5BBd667",
+  "MayanBridgeImplV2": "0xCFee2171DC6c670eF1E0Df832df0cF37C31705E9"
 }
