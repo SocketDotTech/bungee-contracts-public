@@ -14,5 +14,7 @@
   "Solver": "0xae68b7117be0026cbd4366303f74eecbb19e4042",
   "SwapRequestCallback": "0x84Fd802Dd211D483Eb115Ee8a80d0029784c7637",
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
-  "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b"
+  "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
+  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
+  "CCTPV2RouterSingleOutput": "0x09b043840cd2f32687ec6b63fb0412585de39822"
 }
