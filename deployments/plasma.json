@@ -7,13 +7,14 @@
   "BungeeGateway": "0x8f503B6d9fFdae8d375d1E226b71B4B3144D3849",
   "Entrypoint": "0xc8807bD5b5c87Fe7Fc73D644Cb7800d1A4e4F09D",
   "FeeCollector": "0xE12D0CE29B916fbc067f49a8ebC203ffB66E8ded",
-  "RFQRouterSingleOutput": "0xeC1b393Ded5C92e8f9BcfeDbAc2944257EB0184a",
+  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
+  "RFQRouterSingleOutput": "0xc0550357b16efb528ddaA54D15Cb64FB0750716F",
   "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
   "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
-  "BungeeInbox": "0x7ad979C6b0C9924F79ea571280071595ba13D002",
-  "Solver": "0xae68b7117be0026cbd4366303f74eecbb19e4042",
-  "SwapRequestCallback": "0x84Fd802Dd211D483Eb115Ee8a80d0029784c7637",
+  "BungeeInbox": "0x52b64acc8b46349Be18a0490b20d2a3F2D7Ed2Af",
+  "Solver": "0xAe68b7117BE0026Cbd4366303f74EEcbB19e4042",
+  "SwapRequestCallback": "0x32B57D94ddF656b1E1edc31250B8a386aD633a34",
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
-  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9"
+  "ZeroxV2Wrapper": "0xA3429b742B29BF07F0864a3aD9DB759592de96f1"
 }
