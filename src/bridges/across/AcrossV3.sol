@@ -15,7 +15,7 @@ import {ACROSS} from "../../static/RouteIdentifiers.sol";
  * RequestData is different to just bride and bridging chained with swap
  * @author Socket dot tech.
  */
-contract AcrossImpl is BridgeImplBase {
+contract AcrossImplV3 is BridgeImplBase {
     /// @notice SafeTransferLib - library for safe and optimised operations on ERC20 tokens
     using SafeTransferLib for ERC20;
 
@@ -28,7 +28,7 @@ contract AcrossImpl is BridgeImplBase {
     bytes4 public immutable ACROSS_ERC20_EXTERNAL_BRIDGE_FUNCTION_SELECTOR =
         bytes4(
             keccak256(
-                "bridgeERC20To(uint256,(address[],address[],uint256[],uint32[],uint256,bytes32))"
+                "bridgeERC20To(uint256,(address[],address[],uint256,uint32[],uint256,uint8,uint8,bytes32,bytes))"
             )
         );
 
@@ -37,14 +37,14 @@ contract AcrossImpl is BridgeImplBase {
     bytes4 public immutable ACROSS_NATIVE_EXTERNAL_BRIDGE_FUNCTION_SELECTOR =
         bytes4(
             keccak256(
-                "bridgeNativeTo(uint256,(address[],address,uint256[],uint32[],uint256,bytes32))"
+                "bridgeNativeTo(uint256,(address[],address,uint256,uint32[],uint256,uint8,uint8,bytes32,bytes))"
             )
         );
 
     bytes4 public immutable ACROSS_SWAP_BRIDGE_SELECTOR =
         bytes4(
             keccak256(
-                "swapAndBridge(uint32,bytes,(address[],address,uint256[],uint32[],uint256,bytes32))"
+                "swapAndBridge(uint32,bytes,(address[],address,uint256,uint32[],uint256,uint8,uint8,bytes32,bytes))"
             )
         );
 
@@ -61,19 +61,25 @@ contract AcrossImpl is BridgeImplBase {
     struct AcrossBridgeDataNoToken {
         address[] senderReceiverAddresses; // 0 - sender, 1 - receiver
         address outputToken;
-        uint256[] outputAmountToChainIdArray; // 0 -output amount, 1 - tochainId
+        uint256 toChainId;
         uint32[] quoteAndDeadlineTimeStamps; // 0 - quoteTimestamp, 1 - fillDeadline
-        uint256 bridgeFee; // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
+        uint256 bridgeFee; // Absolute fee in input token decimals
+        uint8 inputTokenDecimals; // Decimals of the input token (from swap or transfer)
+        uint8 outputTokenDecimals; // Decimals of the output token on destination
         bytes32 metadata;
+        bytes message; // Message for composable bridging
     }
 
     struct AcrossBridgeData {
         address[] senderReceiverAddresses; // 0 - sender, 1 - receiver
         address[] inputOutputTokens; // 0 - input token, 1 - output token
-        uint256[] outputAmountToChainIdArray; // 0 -output amount, 1 - tochainId
+        uint256 toChainId;
         uint32[] quoteAndDeadlineTimeStamps; // 0 - quoteTimestamp, 1 - fillDeadline
-        uint256 bridgeFee; // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
+        uint256 bridgeFee; // Absolute fee in input token decimals
+        uint8 inputTokenDecimals; // Decimals of the input token
+        uint8 outputTokenDecimals; // Decimals of the output token on destination
         bytes32 metadata;
+        bytes message; // Message for composable bridging
     }
 
     /// @notice socketGatewayAddress to be initialised via storage variable BridgeImplBase
@@ -89,31 +95,69 @@ contract AcrossImpl is BridgeImplBase {
         WETH = _wethAddress;
     }
 
+    /// @notice Helper function to calculate output amount with fee deduction and decimal adjustment
+    function calculateOutputAmount(
+        uint256 inputAmount,
+        uint256 bridgeFee,
+        uint8 inputDecimals,
+        uint8 outputDecimals
+    ) private pure returns (uint256) {
+        // Then convert to output token decimals
+        if (inputDecimals == outputDecimals) {
+            return inputAmount - bridgeFee;
+        }
+
+        // If output decimals > input decimals, multiply by 10^(difference)
+        if (outputDecimals > inputDecimals) {
+            uint256 decimalDiff = outputDecimals - inputDecimals;
+            return (inputAmount - bridgeFee) * (10 ** decimalDiff);
+        }
+        // If output decimals < input decimals, divide by 10^(difference)
+        else {
+            uint256 decimalDiff = inputDecimals - outputDecimals;
+            return (inputAmount - bridgeFee) / (10 ** decimalDiff);
+        }
+    }
+
     function acrossBridgeErc20(
         uint256 amount,
         address token,
-        AcrossBridgeDataNoToken memory acrossBridgeData
+        AcrossBridgeDataNoToken calldata acrossBridgeData
     ) private {
+        uint256 outputAmount = calculateOutputAmount(
+            amount,
+            acrossBridgeData.bridgeFee,
+            acrossBridgeData.inputTokenDecimals,
+            acrossBridgeData.outputTokenDecimals
+        );
+
         spokePool.depositV3(
             acrossBridgeData.senderReceiverAddresses[0],
             acrossBridgeData.senderReceiverAddresses[1],
             token,
             acrossBridgeData.outputToken,
             amount,
-            amount - acrossBridgeData.bridgeFee, // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            outputAmount,
+            acrossBridgeData.toChainId,
             address(0),
             acrossBridgeData.quoteAndDeadlineTimeStamps[0],
             acrossBridgeData.quoteAndDeadlineTimeStamps[1],
             0,
-            ""
+            acrossBridgeData.message
         );
     }
 
     function acrossBridgeNative(
         uint256 amount,
-        AcrossBridgeDataNoToken memory acrossBridgeData
+        AcrossBridgeDataNoToken calldata acrossBridgeData
     ) private {
+        uint256 outputAmount = calculateOutputAmount(
+            amount,
+            acrossBridgeData.bridgeFee,
+            acrossBridgeData.inputTokenDecimals,
+            acrossBridgeData.outputTokenDecimals
+        );
+
         /// @notice As per across docs https://docs.across.to/introduction/developer-notes#what-is-the-behavior-of-eth-weth-in-transfers
         /// If a bridge transfer is being sent to an EOA, the EOA will receive ETH (not WETH)
         /// If a bridge transfer is being sent to a contract, the contract will receive WETH (not ETH)
@@ -123,13 +167,13 @@ contract AcrossImpl is BridgeImplBase {
             WETH,
             acrossBridgeData.outputToken,
             amount,
-            amount - acrossBridgeData.bridgeFee, // incase of swap involved in the tx, bridgeFee is deducted from swapped amount
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            outputAmount,
+            acrossBridgeData.toChainId,
             address(0),
             acrossBridgeData.quoteAndDeadlineTimeStamps[0],
             acrossBridgeData.quoteAndDeadlineTimeStamps[1],
             0,
-            ""
+            acrossBridgeData.message
         );
     }
 
@@ -151,6 +195,13 @@ contract AcrossImpl is BridgeImplBase {
             (AcrossBridgeData)
         );
 
+        uint256 outputAmount = calculateOutputAmount(
+            amount,
+            acrossBridgeData.bridgeFee,
+            acrossBridgeData.inputTokenDecimals,
+            acrossBridgeData.outputTokenDecimals
+        );
+
         if (acrossBridgeData.inputOutputTokens[0] == NATIVE_TOKEN_ADDRESS) {
             /// @notice As per across docs https://docs.across.to/introduction/developer-notes#what-is-the-behavior-of-eth-weth-in-transfers
             /// If a bridge transfer is being sent to an EOA, the EOA will receive ETH (not WETH)
@@ -161,13 +212,13 @@ contract AcrossImpl is BridgeImplBase {
                 WETH,
                 acrossBridgeData.inputOutputTokens[1],
                 amount,
-                amount - acrossBridgeData.bridgeFee,
-                acrossBridgeData.outputAmountToChainIdArray[1],
+                outputAmount,
+                acrossBridgeData.toChainId,
                 address(0),
                 acrossBridgeData.quoteAndDeadlineTimeStamps[0],
                 acrossBridgeData.quoteAndDeadlineTimeStamps[1],
                 0,
-                ""
+                acrossBridgeData.message
             );
         } else {
             if (
@@ -188,20 +239,20 @@ contract AcrossImpl is BridgeImplBase {
                 acrossBridgeData.inputOutputTokens[0],
                 acrossBridgeData.inputOutputTokens[1],
                 amount,
-                amount - acrossBridgeData.bridgeFee,
-                acrossBridgeData.outputAmountToChainIdArray[1],
+                outputAmount,
+                acrossBridgeData.toChainId,
                 address(0),
                 acrossBridgeData.quoteAndDeadlineTimeStamps[0],
                 acrossBridgeData.quoteAndDeadlineTimeStamps[1],
                 0,
-                ""
+                acrossBridgeData.message
             );
         }
 
         emit SocketBridge(
             amount,
             acrossBridgeData.inputOutputTokens[0],
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            acrossBridgeData.toChainId,
             AcrossIdentifier,
             msg.sender,
             acrossBridgeData.senderReceiverAddresses[1],
@@ -256,7 +307,7 @@ contract AcrossImpl is BridgeImplBase {
         emit SocketBridge(
             bridgeAmount,
             token,
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            acrossBridgeData.toChainId,
             AcrossIdentifier,
             msg.sender,
             acrossBridgeData.senderReceiverAddresses[1],
@@ -270,10 +321,17 @@ contract AcrossImpl is BridgeImplBase {
      */
     function bridgeERC20To(
         uint256 amount,
-        AcrossBridgeData memory acrossBridgeData
+        AcrossBridgeData calldata acrossBridgeData
     ) external payable {
         ERC20 tokenInstance = ERC20(acrossBridgeData.inputOutputTokens[0]);
         tokenInstance.safeTransferFrom(msg.sender, socketGateway, amount);
+
+        uint256 outputAmount = calculateOutputAmount(
+            amount,
+            acrossBridgeData.bridgeFee,
+            acrossBridgeData.inputTokenDecimals,
+            acrossBridgeData.outputTokenDecimals
+        );
 
         if (
             amount >
@@ -293,19 +351,19 @@ contract AcrossImpl is BridgeImplBase {
             acrossBridgeData.inputOutputTokens[0],
             acrossBridgeData.inputOutputTokens[1],
             amount,
-            acrossBridgeData.outputAmountToChainIdArray[0],
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            outputAmount,
+            acrossBridgeData.toChainId,
             address(0),
             acrossBridgeData.quoteAndDeadlineTimeStamps[0],
             acrossBridgeData.quoteAndDeadlineTimeStamps[1],
             0,
-            ""
+            acrossBridgeData.message
         );
 
         emit SocketBridge(
             amount,
             acrossBridgeData.inputOutputTokens[0],
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            acrossBridgeData.toChainId,
             AcrossIdentifier,
             msg.sender,
             acrossBridgeData.senderReceiverAddresses[1],
@@ -319,8 +377,15 @@ contract AcrossImpl is BridgeImplBase {
      */
     function bridgeNativeTo(
         uint256 amount,
-        AcrossBridgeDataNoToken memory acrossBridgeData
+        AcrossBridgeDataNoToken calldata acrossBridgeData
     ) external payable {
+        uint256 outputAmount = calculateOutputAmount(
+            amount,
+            acrossBridgeData.bridgeFee,
+            acrossBridgeData.inputTokenDecimals,
+            acrossBridgeData.outputTokenDecimals
+        );
+
         /// @notice As per across docs https://docs.across.to/introduction/developer-notes#what-is-the-behavior-of-eth-weth-in-transfers
         /// If a bridge transfer is being sent to an EOA, the EOA will receive ETH (not WETH)
         /// If a bridge transfer is being sent to a contract, the contract will receive WETH (not ETH)
@@ -330,19 +395,19 @@ contract AcrossImpl is BridgeImplBase {
             WETH,
             acrossBridgeData.outputToken,
             amount,
-            acrossBridgeData.outputAmountToChainIdArray[0],
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            outputAmount,
+            acrossBridgeData.toChainId,
             address(0),
             acrossBridgeData.quoteAndDeadlineTimeStamps[0],
             acrossBridgeData.quoteAndDeadlineTimeStamps[1],
             0,
-            ""
+            acrossBridgeData.message
         );
 
         emit SocketBridge(
             amount,
             NATIVE_TOKEN_ADDRESS,
-            acrossBridgeData.outputAmountToChainIdArray[1],
+            acrossBridgeData.toChainId,
             AcrossIdentifier,
             msg.sender,
             acrossBridgeData.senderReceiverAddresses[1],
