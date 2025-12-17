@@ -27,6 +27,6 @@
   "FeesTakerController": "0xe0134Ca3d7AD384070580542Baee00511105BEfA",
   "RefuelSwapAndBridgeController": "0xA898821781ba5dd78a485Bcb610b8a60bbC5357E",
   "AcrossV3WethUnwrapper": "0x36f0B62E4eE3d30939cBccABA9D983579799D931",
-  "AcrossImplV3": "0x740EA79e2FccDDB4eE8bB8Fc8ccAC5eb6dFa0b40"
+  "AcrossImplV3": "0x740EA79e2FccDDB4eE8bB8Fc8ccAC5eb6dFa0b40",
   "StargateImplV2": "0xEFB37Bd3a9ed2f768bf6f79d0379fe7f9BE50F49"
 }
