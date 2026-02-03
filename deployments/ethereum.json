@@ -10,7 +10,7 @@
   "SwitchboardRouter": "0x6026369CcA399352ba68AEDdb89aC65442D1907b",
   "SwitchboardPlug": "0x9ED094fDe2a31BEd0278a4cfdb5528473baFe5a8",
   "Entrypoint": "0x2837593949F6c5f7abB66dd848ed4E5b774D4ef5",
-  "BungeeInbox": "0x92612711D4d07dEbe4964D4d1401D7d7B5a11737",
+  "BungeeInbox": "0x5e0f8e7337c8955d2124b8e85ca74af884b3e124",
   "SwapRequestCallback": "0xEFB37Bd3a9ed2f768bf6f79d0379fe7f9BE50F49",
   "ZeroxV2Wrapper": "0x614595189d16995Fe22a5c267B220C803e50966F",
   "CCTPV2RouterSingleOutput": "0x09b043840cd2f32687ec6b63fb0412585de39822",
@@ -19,7 +19,6 @@
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
   "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
-
   "DisabledSocketRoute": "0x0f34A522FF82151c90679b73211955068FD854F1",
   "SocketDeployFactory": "0x71630095e3F08A86aFC73f7b07342192adf39C55",
   "SocketGateway": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
@@ -65,5 +64,9 @@
   "GnosisBridgeRouterImpl": "0xBd2891271DD664eC0ed809B7614dC6bEC785bBF4",
   "AcrossV3WethUnwrapper": "0x36f0B62E4eE3d30939cBccABA9D983579799D931",
   "AcrossImplV3": "0x740EA79e2FccDDB4eE8bB8Fc8ccAC5eb6dFa0b40",
-  "StargateImplV2": "0x05b108fD88d042eF0145DCcd564DCd6471852FC2"
+  "StargateImplV2": "0x05b108fD88d042eF0145DCcd564DCd6471852FC2",
+  "BungeeInboxOld": "0x92612711D4d07dEbe4964D4d1401D7d7B5a11737",
+  "AcrossStakedRoute": "0x125ac5a530ece0a06dd3cd3da711c054eadb57b9",
+  "CelerStakedRoute": "0xf1c07b6dddc480602d0304c31e6b13ff711b5828",
+  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad"
 }
