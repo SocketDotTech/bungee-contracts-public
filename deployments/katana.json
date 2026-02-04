@@ -10,10 +10,12 @@
   "RFQRouterSingleOutput": "0xeC1b393Ded5C92e8f9BcfeDbAc2944257EB0184a",
   "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
   "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
-  "BungeeInbox": "0x7ad979C6b0C9924F79ea571280071595ba13D002",
+  "BungeeInbox": "0x5e0f8e7337c8955d2124b8e85ca74af884b3e124",
   "Solver": "0xae68b7117be0026cbd4366303f74eecbb19e4042",
   "SwapRequestCallback": "0x84Fd802Dd211D483Eb115Ee8a80d0029784c7637",
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
-  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9"
+  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
+  "BungeeInboxOld": "0x7ad979C6b0C9924F79ea571280071595ba13D002",
+  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad"
 }

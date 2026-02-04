@@ -10,7 +10,7 @@
   "SwitchboardRouter": "0xD22ef0dEA27049484bF9b4B748eC715dB8c9d646",
   "SwitchboardPlug": "0x4743a14Dd1B32Bf7c89dBB905A83fC513455d2C7",
   "Entrypoint": "0xF070dae0a1eae99A27aE2496093F913a2d26E3b3",
-  "BungeeInbox": "0x002cd45978F556D817e5FBB4020f7Dd82Bb10941",
+  "BungeeInbox": "0x5e0f8e7337c8955d2124b8e85ca74af884b3e124",
   "SwapRequestCallback": "0xEFB37Bd3a9ed2f768bf6f79d0379fe7f9BE50F49",
   "ZeroxV2Wrapper": "0x614595189d16995Fe22a5c267B220C803e50966F",
   "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
@@ -18,7 +18,6 @@
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
   "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
-
   "DisabledSocketRoute": "0x0f34A522FF82151c90679b73211955068FD854F1",
   "SocketDeployFactory": "0x71630095e3F08A86aFC73f7b07342192adf39C55",
   "SocketGateway": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
@@ -49,5 +48,10 @@
   "MayanBridgeImplV2": "0xFBd820d7C4aFB954532107b8DD37D0515C90eBb0",
   "AcrossV3WethUnwrapper": "0x36f0B62E4eE3d30939cBccABA9D983579799D931",
   "AcrossImplV3": "0x740EA79e2FccDDB4eE8bB8Fc8ccAC5eb6dFa0b40",
-  "StargateImplV2": "0x4682e8315B80cF757e2077280E0471729c992Ed3"
+  "StargateImplV2": "0x4682e8315B80cF757e2077280E0471729c992Ed3",
+  "BungeeInboxOld": "0x002cd45978F556D817e5FBB4020f7Dd82Bb10941",
+  "AcrossStakedRoute": "0x125ac5a530ece0a06dd3cd3da711c054eadb57b9",
+  "CelerStakedRoute": "0xf1c07b6dddc480602d0304c31e6b13ff711b5828",
+  "BungeeDepository": "0xa6cd293ba20873b3cbbbf78f156a1d56d8ab9347",
+  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad"
 }

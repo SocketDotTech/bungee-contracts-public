@@ -11,11 +11,14 @@
   "SwitchboardRouter": "0x3416daBEAf259FBE5ba455E361f23e58BAB91E3E",
   "SwitchboardPlug": "0xc5C38A15A9D3D9dC5Fc7dE4426779B695677e45D",
   "Entrypoint": "0xc8807bD5b5c87Fe7Fc73D644Cb7800d1A4e4F09D",
-  "BungeeInbox": "0xF22bb9358a72591B652cfd6861C532BC90fF5b86",
+  "BungeeInbox": "0x5e0f8e7337c8955d2124b8e85ca74af884b3e124",
   "SwapRequestCallback": "0xEFB37Bd3a9ed2f768bf6f79d0379fe7f9BE50F49",
   "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
   "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
-  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9"
+  "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
+  "BungeeInboxOld": "0xF22bb9358a72591B652cfd6861C532BC90fF5b86",
+  "AcrossStakedRoute": "0x125ac5a530ece0a06dd3cd3da711c054eadb57b9",
+  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad"
 }

@@ -12,9 +12,12 @@
   "CCTPV2RouterSingleOutput": "0x09b043840cd2f32687ec6b63fb0412585de39822",
   "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
   "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
-  "BungeeInbox": "0xaB568b1B49f8bE7488Ca1c0D5DdA6fF94691e4c8",
+  "BungeeInbox": "0x5e0f8e7337c8955d2124b8e85ca74af884b3e124",
   "Solver": "0xAe68b7117BE0026Cbd4366303f74EEcbB19e4042",
   "SwapRequestCallback": "0x88a8596e2B51512aab3867Cc895d7047E1D9ef7B",
   "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
-  "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b"
+  "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
+  "BungeeInboxOld": "0xaB568b1B49f8bE7488Ca1c0D5DdA6fF94691e4c8",
+  "AcrossStakedRoute": "0x125ac5a530ece0a06dd3cd3da711c054eadb57b9",
+  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad"
 }
