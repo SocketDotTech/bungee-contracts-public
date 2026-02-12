@@ -5,7 +5,7 @@
   "SwapRequestImpl": "0xdcf83CC9CCDfa57aE757021f9457567F67BABeA9",
   "BungeeGateway": "0x9aF2b913679049c966b77934af4CbE7Bb36Cf9D3",
   "FeeCollector": "0xE8746d664059067FD9337eb81CEdD632Ffa4325e",
-  "RFQRouterSingleOutput": "0xD5843582aC0E3B6F91485802cfC23C9d9c311991",
+  "RFQRouterSingleOutput": "0xc4088d6e5a2027e784efc0491c322a3e2621bd9e",
   "CCTPRouterSingleOutput": "0x0000000000000000000000000000000000000000",
   "SwitchboardRouter": "0xD22ef0dEA27049484bF9b4B748eC715dB8c9d646",
   "SwitchboardPlug": "0x4743a14Dd1B32Bf7c89dBB905A83fC513455d2C7",
@@ -14,8 +14,8 @@
   "SwapRequestCallback": "0xEFB37Bd3a9ed2f768bf6f79d0379fe7f9BE50F49",
   "ZeroxV2Wrapper": "0x614595189d16995Fe22a5c267B220C803e50966F",
   "StakedRouterExecutor": "0x12efda5e4d410c5da723ceb7e43942779e3fe49b",
-  "StakedRouterSingleOutput": "0x94d0bef156041af3ef0b9fec4784468e660045dd",
-  "StakedRouterReceiver": "0x26d8da52e56de71194950689ccf74cd309761324",
+  "StakedRouterSingleOutput": "0x167d49f106bbea59587ef3c63b33e6a421af1b8d",
+  "StakedRouterReceiver": "0x5d84f33b7c9214df23fd86a0861ac923af99954d",
   "GenericStakedRoute": "0x5013c0b3defd8f832d1b6dec750382946de5c13b",
   "CalldataExecutor": "0xa873aab6a98cb764ad6d52820d129d0e3667d9f9",
   "DisabledSocketRoute": "0x0f34A522FF82151c90679b73211955068FD854F1",
@@ -53,5 +53,6 @@
   "AcrossStakedRoute": "0x125ac5a530ece0a06dd3cd3da711c054eadb57b9",
   "CelerStakedRoute": "0xf1c07b6dddc480602d0304c31e6b13ff711b5828",
   "BungeeDepository": "0xa6cd293ba20873b3cbbbf78f156a1d56d8ab9347",
-  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad"
+  "UnwrapAndForward": "0xd31367da48d3f9d6dd0d59de4aa1ef6023a88fad",
+  "CCTPV2RouterSingleOutput": "0x0000000000000000000000000000000000000000"
 }
