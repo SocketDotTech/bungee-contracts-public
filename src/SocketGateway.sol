@@ -120,6 +120,9 @@ contract SocketGatewayTemplate is Ownable {
         uint256 ratioAggregate;
         for (uint256 index = 0; index < requestLength; ) {
             ratioAggregate += swapMultiBridgeRequest.bridgeRatios[index];
+            unchecked {
+                ++index;
+            }
         }
 
         if (ratioAggregate != CENT_PERCENT) {
